@@ -3109,7 +3109,7 @@ function lkD(k) {
   return function () {
     var o = LK[k], cx = lkX(k), v = o.d(cx), n = o.n;
     return { x: o.x, y: o.yd, h: 128, grid: true, ticks: lkTicks(o, o.td), labels: { x: 'x', y: n + '′' }, fns: [{ f: o.d, role: 'rate' }],
-      dots: [{ x: cx, y: clampV(v, o.yd[0], o.yd[1]), role: 'k' }], vlines: [{ x: cx, role: 'muted', dash: true }],
+      dots: [{ x: cx, y: clampV(v, o.yd[0], o.yd[1]), role: 'k' }], vlines: [{ x: cx, role: 'muted' }],
       caption: '`' + n + '′(' + fmtNum(cx, 2) + ') = ' + (Math.abs(v) < 1e-9 ? '0`, so the tangent line is horizontal.' : fmtNum(v, 2) + '` is the slope, so `' + n + '` is ' + (v > 0 ? 'increasing.' : 'decreasing.')),
       aria: 'Graph of ' + o.disp[1] + ', with a point at the x of the point on the graph above.' };
   };
@@ -3118,7 +3118,7 @@ function lkDD(k) {
   return function () {
     var o = LK[k], cx = lkX(k), v = o.dd(cx), n = o.n;
     return { x: o.x, y: o.ydd, h: 128, grid: true, ticks: lkTicks(o, o.tdd), labels: { x: 'x', y: n + '″' }, fns: [{ f: o.dd, role: 'ink' }],
-      dots: [{ x: cx, y: clampV(v, o.ydd[0], o.ydd[1]), role: 'k' }], vlines: [{ x: cx, role: 'muted', dash: true }],
+      dots: [{ x: cx, y: clampV(v, o.ydd[0], o.ydd[1]), role: 'k' }], vlines: [{ x: cx, role: 'muted' }],
       caption: '`' + n + '″(' + fmtNum(cx, 2) + ') = ' + (Math.abs(v) < 1e-9 ? '0`.' : fmtNum(v, 2) + '` is ' + (v > 0 ? 'positive, so the slopes grow and the graph is concave up.' : 'negative, so the slopes fall and the graph is concave down.')),
       aria: 'Graph of ' + o.disp[2] + ', with a point at the same x.' };
   };
